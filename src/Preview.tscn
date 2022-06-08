@@ -27,6 +27,7 @@ color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
 
 [node name="Image" type="AnimatedSprite" parent="."]
 position = Vector2( 960, 540 )
+scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 1 )
 script = ExtResource( 2 )
 

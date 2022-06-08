@@ -30,7 +30,8 @@ func get_images():
 			file_name = dir.get_next()
 			i += 1
 
-	
+		Global.total_frames = frames.get_frame_count('default')
+
 	else:
 		print("Could not open %s" % path)
 

@@ -17,5 +17,6 @@ func get_info():
 	var c = ConfigFile.new()
 	if c.load('res://config.cfg') == OK:
 		Global.bpm = c.get_value("data", "bpm", 0.0)
+		Global.offset = c.get_value("data", "offset", 0.0)
 	else:
 		print("Could not load config")
