@@ -64,7 +64,7 @@ func _process(_delta):
 		)
 		
 		synced_position = song_position / (60/Global.bpm)
-		wrapped_position = wrapf( synced_position , 0.0 , 1.0 )
+		wrapped_position = wrapf( synced_position * Global.loops_per_beat , 0.0 , 1.0 )
 		remapped_position = (wrapped_position - 0.0) / (1.0 - 0.0) * (float(Global.total_frames) - 0.0) + 0.0
 		Global.frame_driver = int(floor(remapped_position))
 		# result = (value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA

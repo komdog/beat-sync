@@ -36,4 +36,4 @@ func get_images():
 		print("Could not open %s" % path)
 
 func _process(_delta):
-	frame = Global.frame_driver
+	frame = Global.frame_driver 

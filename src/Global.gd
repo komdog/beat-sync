@@ -2,6 +2,7 @@ extends Node
 
 var bpm: float = 0
 var offset: float = 0
+var loops_per_beat: float = 1.0
 var frame_driver: int = 0
 var total_frames: int = 0
 
