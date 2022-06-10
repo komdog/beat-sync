@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Preview.gd" type="Script" id=1]
 [ext_resource path="res://src/Image.gd" type="Script" id=2]
 [ext_resource path="res://src/Music.gd" type="Script" id=3]
-[ext_resource path="res://assets/crypt-of-tomorrow-ut-font-no-rus.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/fonts/crypt_font.tres" type="DynamicFont" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -12,10 +12,6 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
-
-[sub_resource type="DynamicFont" id=2]
-size = 30
-font_data = ExtResource( 4 )
 
 [node name="Preview" type="Node2D"]
 script = ExtResource( 1 )
@@ -44,7 +40,7 @@ color = Color( 0, 0, 0, 1 )
 [node name="Label" type="Label" parent="Bar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 4 )
 text = "PRESS SPACE TO RUN"
 align = 1
 valign = 1

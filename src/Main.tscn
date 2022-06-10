@@ -1,5 +1,155 @@
-[gd_scene format=2]
+[gd_scene load_steps=15 format=2]
 
-[node name="Control" type="Control"]
+[ext_resource path="res://assets/fonts/crypt_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/Main.gd" type="Script" id=2]
+[ext_resource path="res://assets/ttf/SourceSansPro-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/ttf/SourceSansPro-SemiBold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/ttf/SourceSansPro-Light.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Theme" id=6]
+Button/fonts/font = SubResource( 8 )
+Button/styles/focus = SubResource( 9 )
+Button/styles/hover = SubResource( 4 )
+Button/styles/normal = SubResource( 5 )
+Button/styles/pressed = SubResource( 7 )
+
+[node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Popup" type="Popup" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -200.0
+margin_right = 400.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 800, 400 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Panel" type="Panel" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Popup/Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -113.0
+margin_bottom = -55.0
+custom_fonts/font = SubResource( 2 )
+text = "NEW VERSION DETECTED"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Popup/Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -64.0
+margin_bottom = -6.0
+custom_fonts/font = SubResource( 3 )
+text = "Version Info"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 234.0
+margin_bottom = -87.0
+theme = SubResource( 6 )
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Update" type="Button" parent="Popup/Panel/HBoxContainer"]
+margin_left = 95.0
+margin_right = 395.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 300, 0 )
+text = "Update"
+
+[node name="Ignore" type="Button" parent="Popup/Panel/HBoxContainer"]
+margin_left = 405.0
+margin_right = 705.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 300, 0 )
+text = "Ignore"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -18.0
+margin_right = 300.0
+margin_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Checking For Updates"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="button_up" from="Popup/Panel/HBoxContainer/Update" to="." method="_on_Update_button_up"]
+[connection signal="button_up" from="Popup/Panel/HBoxContainer/Ignore" to="." method="_on_Ignore_button_up"]
