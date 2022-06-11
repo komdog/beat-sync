@@ -15,7 +15,7 @@ func _input(event):
 		
 func get_info():
 	var c = ConfigFile.new()
-	if c.load('res://config.cfg') == OK:
+	if c.load(Global.cur_dir + 'config.cfg') == OK:
 		Global.bpm = c.get_value("data", "bpm", 0.0)
 		Global.offset = c.get_value("data", "offset", 0.0)
 		Global.loops_per_beat = c.get_value("data", "loops", 1)

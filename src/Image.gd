@@ -7,7 +7,7 @@ func _ready():
 
 func get_images():
 
-	var path = "res://sequence/"
+	var path = Global.cur_dir + "sequence/"
 	print('Loading %s' % path)
 
 	# Open Dir 

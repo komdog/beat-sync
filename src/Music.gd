@@ -12,7 +12,7 @@ func _ready():
 
 func get_audio_files():
 
-	var path = "res://music/"
+	var path = Global.cur_dir + "music/"
 
 	# Open Dir 
 	var dir = Directory.new()
