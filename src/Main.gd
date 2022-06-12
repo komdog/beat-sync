@@ -1,16 +1,8 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-
 func _ready():
 	if $HTTPRequest.connect("request_completed", self, "_on_request_completed") == OK: pass
 	$HTTPRequest.request("https://api.github.com/repos/komdog/beat-sync/git/refs/tags")
-
 	
 
 func _on_request_completed(_result, _response_code, _headers, body):
